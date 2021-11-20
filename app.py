@@ -1,5 +1,4 @@
-from flask import Flask, render_template, \
-  request, redirect, url_for, flash
+from flask import Flask, render_template, request, redirect, url_for, flash
 import pymysql.cursors, os
 
 app = Flask(__name__)
@@ -8,7 +7,7 @@ app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 
 
 conn = cursor = None
-#fungsi koneksi database
+
 def bukaDB():
    global conn, cursor
    conn = pymysql.connect(host='localhost',
@@ -17,7 +16,7 @@ def bukaDB():
         db='data_barang',
         charset='utf8mb4')
    cursor = conn.cursor()	
-#fungsi untuk menutup koneksi
+
 def tutupDB():
    global conn, cursor
    cursor.close()
