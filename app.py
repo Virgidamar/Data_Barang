@@ -86,5 +86,65 @@ def hapus(no):
     return redirect(url_for('barang'))
 
 
+@app.route('/karyawan')
+def karyawan():
+    bukaDB()
+    container = []
+    sql = "SELECT * FROM karyawan"
+    cursor.execute(sql)
+    result = cursor.fetchall()
+    for data in result:
+        container.append(data)
+    tutupDB()
+    return render_template('karyawan.html', container=container)
+
+@app.route('/tambah1', methods=['GET','POST'])
+def tambah1():
+    if request.method == 'POST':
+        nama = request.form['nama']
+        gender = request.form['gender']
+        tanggal_lahir = request.form['tanggal_lahir']
+        telp = request.form['telp']
+        alamat = request.form['alamat']
+        bukaDB()
+        sql = "INSERT INTO karyawan (nama, gender, tanggal_lahir, telp, alamat) VALUES(%s, %s, %s, %s, %s)"
+        val = (nama, gender, tanggal_lahir, telp, alamat)
+        cursor.execute(sql, val)
+        conn.commit()
+        tutupDB()
+        flash('Berhasil Menambahkan Data')
+        return redirect(url_for('karyawan'))
+    else:
+        return render_template('tambah1.html')
+        
+@app.route('/edit1', methods=['GET', 'POST'])
+def edit1():
+    bukaDB()
+    if request.method == 'POST':
+        nama = request.form['nama']
+        gender = request.form['gender']
+        tanggal_lahir = request.form['tanggal_lahir']
+        telp = request.form['telp']
+        alamat = request.form['alamat']
+        no = request.form['no']
+        sql = "UPDATE karyawan SET nama=%s, gender=%s, tanggal_lahir=%s, telp=%s, alamat=%s WHERE no=%s"
+        val = (nama, gender, tanggal_lahir, telp, alamat, no)
+        cursor.execute(sql, val)
+        conn.commit()
+        tutupDB()
+        flash('Berhasil Mengedit Data')
+        return redirect(url_for('karyawan'))
+    else:
+        return render_template('karyawan.html')
+
+@app.route('/hapus1/<no>', methods=['GET', 'POST'])
+def hapus1(no):
+    bukaDB()
+    cursor.execute("DELETE FROM karyawan WHERE no=%s",(no))
+    conn.commit()
+    tutupDB()
+    flash('Berhasil Menghapus Data')
+    return redirect(url_for('karyawan'))
+
 if __name__ == '__main__':
    app.run(debug=True)

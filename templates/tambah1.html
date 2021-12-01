@@ -18,36 +18,36 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="http://127.0.0.1:5000/barang">Data Barang<span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="http://127.0.0.1:5000/karyawan">Data Karyawan<span class="sr-only">(current)</span></a>
             </li>
         </div>
       </nav>
-    <title>Aplikasi Data Barang</title>
+    <title>Aplikasi Pendataan Karyawan</title>
   </head>
   <body>
       <div class="p-3">
-        <a href="http://127.0.0.1:5000/barang" role="button" class="btn btn-info"><i class="bi bi-skip-backward"></i></a>
-        <h1>Tambahkan Barang</h1>
-        <form action="{{ url_for('tambah') }}" method="POST">
+        <a href="http://127.0.0.1:5000/karyawan" role="button" class="btn btn-info"><i class="bi bi-skip-backward"></i></a>
+        <h1>Tambahkan Data Karyawan</h1>
+        <form action="{{ url_for('tambah1') }}" method="POST">
             <div class="form-group">
-              <label for="exampleInputEmail1">Nama Barang</label>
-              <input type="text" name="nama_barang" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Nama Barang">
+              <label for="exampleInputEmail1">Nama</label>
+              <input type="text" name="nama" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Nama">
             </div>
             <div class="form-group">
-              <label for="exampleInputPassword1">Jumlah Barang</label>
-              <input type="text" name="jumlah_barang" class="form-control" id="exampleInputPassword1" placeholder="Masukan Jumlah Barang">
+              <label for="exampleInputPassword1">Gender</label>
+              <input type="text" name="gender" class="form-control" id="exampleInputPassword1" placeholder="Masukan">
             </div>
             <div class="form-group">
-              <label for="exampleInputPassword1">Lokasi Barang</label>
-              <input type="text" name="lokasi_barang" class="form-control" id="exampleInputPassword1" placeholder="Masukan Lokasi Barang">
+              <label for="exampleInputPassword1">Tanggal Lahir</label>
+              <input type="date" name="tanggal_lahir" class="form-control" id="exampleInputPassword1" placeholder="Masukan tanggal lahir">
             </div>
             <div class="form-group">
-              <label for="exampleInputPassword1">Harga Barang</label>
-              <input type="text" name="harga" class="form-control" id="exampleInputPassword1" placeholder="Masukan Harga Barang">
+              <label for="exampleInputPassword1">No. Telp</label>
+              <input type="text" name="telp" class="form-control" id="exampleInputPassword1" placeholder="Masukan no. telp">
             </div>
             <div class="form-group">
-                <label for="exampleInputPassword1">Keterangan</label>
-                <input type="text" name="keterangan" class="form-control" id="exampleInputPassword1" placeholder="Masukan Keterangan">
+                <label for="exampleInputPassword1">Alamat</label>
+                <input type="text" name="alamat" class="form-control" id="exampleInputPassword1" placeholder="Masukan alamat">
               </div>
             <button type="submit" class="btn btn-primary">Submit</button>
           </form>
