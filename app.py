@@ -101,14 +101,22 @@ def karyawan():
 @app.route('/tambah1', methods=['GET','POST'])
 def tambah1():
     if request.method == 'POST':
-        nama = request.form['nama']
-        gender = request.form['gender']
+        id_user = request.form['id_user']
+        nama_lengkap = request.form['nama_lengkap']
+        password = request.form['password']
+        no_telp = request.form['no_telp']
+        email = request.form['email']
+        tempat_lahir = request.form['tempat_lahir']
         tanggal_lahir = request.form['tanggal_lahir']
-        telp = request.form['telp']
+        jenis_kelamin = request.form['jenis_kelamin']
         alamat = request.form['alamat']
+        provinsi = request.form['provinsi']
+        kabupaten_kota = request.form['kabupaten_kota']
+        id_jabatan = request.form['id_jabatan']
+        id_projek = request.form['id_projek']
         bukaDB()
-        sql = "INSERT INTO karyawan (nama, gender, tanggal_lahir, telp, alamat) VALUES(%s, %s, %s, %s, %s)"
-        val = (nama, gender, tanggal_lahir, telp, alamat)
+        sql = "INSERT INTO karyawan (id_user, nama_lengkap, password, no_telp, email, tempat_lahir, tanggal_lahir, jenis_kelamin, alamat, provinsi, kabupaten_kota, id_jabatan, id_projek) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+        val = (id_user, nama_lengkap, password, no_telp, email, tempat_lahir, tanggal_lahir, jenis_kelamin, alamat, provinsi, kabupaten_kota, id_jabatan, id_projek)
         cursor.execute(sql, val)
         conn.commit()
         tutupDB()
@@ -121,14 +129,22 @@ def tambah1():
 def edit1():
     bukaDB()
     if request.method == 'POST':
-        nama = request.form['nama']
-        gender = request.form['gender']
+        id_user = request.form['id_user']
+        nama_lengkap = request.form['nama_lengkap']
+        password = request.form['password']
+        no_telp = request.form['no_telp']
+        email = request.form['email']
+        tempat_lahir = request.form['tempat_lahir']
         tanggal_lahir = request.form['tanggal_lahir']
-        telp = request.form['telp']
+        jenis_kelamin = request.form['jenis_kelamin']
         alamat = request.form['alamat']
+        provinsi = request.form['provinsi']
+        kabupaten_kota = request.form['kabupaten_kota']
+        id_jabatan = request.form['id_jabatan']
+        id_projek = request.form['id_projek']
         no = request.form['no']
-        sql = "UPDATE karyawan SET nama=%s, gender=%s, tanggal_lahir=%s, telp=%s, alamat=%s WHERE no=%s"
-        val = (nama, gender, tanggal_lahir, telp, alamat, no)
+        sql = "UPDATE karyawan SET id_user=%s, nama_lengkap=%s, password=%s, no_telp=%s, email=%s, tempat_lahir=%s, tanggal_lahir=%s, jenis_kelamin=%s, alamat=%s, provinsi=%s, kabupaten_kota=%s, id_jabatan=%s, id_projek=%s WHERE no=%s"
+        val = (id_user, nama_lengkap, password, no_telp, email, tempat_lahir, tanggal_lahir, jenis_kelamin, alamat, provinsi, kabupaten_kota, id_jabatan, id_projek, no)
         cursor.execute(sql, val)
         conn.commit()
         tutupDB()

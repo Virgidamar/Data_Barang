@@ -30,25 +30,57 @@
         <h1>Tambahkan Data Karyawan</h1>
         <form action="{{ url_for('tambah1') }}" method="POST">
             <div class="form-group">
-              <label for="exampleInputEmail1">Nama</label>
-              <input type="text" name="nama" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Nama">
+              <label for="exampleInputEmail1">ID User</label>
+              <input type="text" name="id_user" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan id user">
             </div>
             <div class="form-group">
-              <label for="exampleInputPassword1">Gender</label>
-              <input type="text" name="gender" class="form-control" id="exampleInputPassword1" placeholder="Masukan">
+              <label for="exampleInputPassword1">Nama</label>
+              <input type="text" name="nama_lengkap" class="form-control" id="exampleInputPassword1" placeholder="Masukan nama">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input type="text" name="password" class="form-control" id="exampleInputPassword1" placeholder="Masukan password">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">No. Telp</label>
+              <input type="text" name="no_telp" class="form-control" id="exampleInputPassword1" placeholder="Masukan no. telp">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Email</label>
+                <input type="text" name="email" class="form-control" id="exampleInputPassword1" placeholder="Masukan email">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Tempat Lahir</label>
+              <input type="text" name="tempat_lahir" class="form-control" id="exampleInputPassword1" placeholder="Masukan tempat lahir">
             </div>
             <div class="form-group">
               <label for="exampleInputPassword1">Tanggal Lahir</label>
               <input type="date" name="tanggal_lahir" class="form-control" id="exampleInputPassword1" placeholder="Masukan tanggal lahir">
             </div>
             <div class="form-group">
-              <label for="exampleInputPassword1">No. Telp</label>
-              <input type="text" name="telp" class="form-control" id="exampleInputPassword1" placeholder="Masukan no. telp">
+              <label for="exampleInputPassword1">Jenis Kelamin</label>
+              <input type="text" name="jenis_kelamin" class="form-control" id="exampleInputPassword1" placeholder="Masukan jenis kelamin">
             </div>
             <div class="form-group">
-                <label for="exampleInputPassword1">Alamat</label>
-                <input type="text" name="alamat" class="form-control" id="exampleInputPassword1" placeholder="Masukan alamat">
-              </div>
+              <label for="exampleInputPassword1">Alamat</label>
+              <input type="text" name="alamat" class="form-control" id="exampleInputPassword1" placeholder="Masukan alamat">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Provinsi</label>
+              <input type="text" name="provinsi" class="form-control" id="exampleInputPassword1" placeholder="Masukan provinsi">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Kabupaten Kota</label>
+              <input type="text" name="kabupaten_kota" class="form-control" id="exampleInputPassword1" placeholder="Masukan kabupaten kota">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">ID Jabatan</label>
+              <input type="text" name="id_jabatan" class="form-control" id="exampleInputPassword1" placeholder="Masukan id jabatan">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">ID Projek</label>
+              <input type="text" name="id_projek" class="form-control" id="exampleInputPassword1" placeholder="Masukan id projek">
+            </div>
             <button type="submit" class="btn btn-primary">Submit</button>
           </form>
       </div>
