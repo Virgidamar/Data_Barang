@@ -101,7 +101,6 @@ def karyawan():
 @app.route('/tambah1', methods=['GET','POST'])
 def tambah1():
     if request.method == 'POST':
-        id_user = request.form['id_user']
         nama_lengkap = request.form['nama_lengkap']
         password = request.form['password']
         no_telp = request.form['no_telp']
@@ -115,8 +114,8 @@ def tambah1():
         id_jabatan = request.form['id_jabatan']
         id_projek = request.form['id_projek']
         bukaDB()
-        sql = "INSERT INTO karyawan (id_user, nama_lengkap, password, no_telp, email, tempat_lahir, tanggal_lahir, jenis_kelamin, alamat, provinsi, kabupaten_kota, id_jabatan, id_projek) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
-        val = (id_user, nama_lengkap, password, no_telp, email, tempat_lahir, tanggal_lahir, jenis_kelamin, alamat, provinsi, kabupaten_kota, id_jabatan, id_projek)
+        sql = "INSERT INTO karyawan (nama_lengkap, password, no_telp, email, tempat_lahir, tanggal_lahir, jenis_kelamin, alamat, provinsi, kabupaten_kota, id_jabatan, id_projek) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+        val = (nama_lengkap, password, no_telp, email, tempat_lahir, tanggal_lahir, jenis_kelamin, alamat, provinsi, kabupaten_kota, id_jabatan, id_projek)
         cursor.execute(sql, val)
         conn.commit()
         tutupDB()
@@ -129,7 +128,6 @@ def tambah1():
 def edit1():
     bukaDB()
     if request.method == 'POST':
-        id_user = request.form['id_user']
         nama_lengkap = request.form['nama_lengkap']
         password = request.form['password']
         no_telp = request.form['no_telp']
@@ -142,9 +140,9 @@ def edit1():
         kabupaten_kota = request.form['kabupaten_kota']
         id_jabatan = request.form['id_jabatan']
         id_projek = request.form['id_projek']
-        no = request.form['no']
-        sql = "UPDATE karyawan SET id_user=%s, nama_lengkap=%s, password=%s, no_telp=%s, email=%s, tempat_lahir=%s, tanggal_lahir=%s, jenis_kelamin=%s, alamat=%s, provinsi=%s, kabupaten_kota=%s, id_jabatan=%s, id_projek=%s WHERE no=%s"
-        val = (id_user, nama_lengkap, password, no_telp, email, tempat_lahir, tanggal_lahir, jenis_kelamin, alamat, provinsi, kabupaten_kota, id_jabatan, id_projek, no)
+        id_user = request.form['id_user']
+        sql = "UPDATE karyawan SET nama_lengkap=%s, password=%s, no_telp=%s, email=%s, tempat_lahir=%s, tanggal_lahir=%s, jenis_kelamin=%s, alamat=%s, provinsi=%s, kabupaten_kota=%s, id_jabatan=%s, id_projek=%s WHERE id_user=%s"
+        val = (nama_lengkap, password, no_telp, email, tempat_lahir, tanggal_lahir, jenis_kelamin, alamat, provinsi, kabupaten_kota, id_jabatan, id_projek, id_user)
         cursor.execute(sql, val)
         conn.commit()
         tutupDB()
@@ -153,10 +151,10 @@ def edit1():
     else:
         return render_template('karyawan.html')
 
-@app.route('/hapus1/<no>', methods=['GET', 'POST'])
-def hapus1(no):
+@app.route('/hapus1/<id_user>', methods=['GET', 'POST'])
+def hapus1(id_user):
     bukaDB()
-    cursor.execute("DELETE FROM karyawan WHERE no=%s",(no))
+    cursor.execute("DELETE FROM karyawan WHERE id_user=%s",(id_user))
     conn.commit()
     tutupDB()
     flash('Berhasil Menghapus Data')
